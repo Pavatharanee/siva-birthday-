@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Sivaa 💜</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 20%, #4b2b6d, #1b102e 45%, #07050d);
+            color: white;
+            font-family: Georgia, serif;
+            overflow-x: hidden;
+        }
+
+        /* STARS */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.2;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        /* FLOATING PARTICLES */
+
+        .particle {
+            position: fixed;
+            font-size: 18px;
+            animation: floatUp 8s linear infinite;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            80% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+
+        }
+
+        /* MAIN */
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: auto;
+            padding: 80px 25px;
+            text-align: center;
+        }
+
+        .top-text {
+            letter-spacing: 5px;
+            font-size: 14px;
+            color: #d8b8f5;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 10vw, 85px);
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #e4c3ff,
+                #ffffff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 0 30px rgba(220,180,255,0.35);
+        }
+
+        .birthday {
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: #e4c4ff;
+            margin-bottom: 55px;
+        }
+
+        /* LETTER */
+
+        .letter {
+            text-align: left;
+            padding: 45px 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.09),
+                    rgba(255,255,255,0.03)
+                );
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 22px;
+
+            backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.3);
+
+            margin-bottom: 50px;
+        }
+
+        .letter h2 {
+            text-align: center;
+            font-size: 30px;
+            color: #f0d9ff;
+            margin-bottom: 30px;
+        }
+
+        .letter p {
+            color: #ded5e7;
+            font-size: 17px;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            text-align: right;
+            color: #e5c1ff;
+            font-style: italic;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        /* MUSIC */
+
+        .music-card {
+            padding: 30px 25px;
+
+            background: rgba(255,255,255,0.06);
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            border-radius: 20px;
+
+            margin-bottom: 60px;
+        }
+
+        .music-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .music-card h3 {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .music-card p {
+            color: #c8b8d5;
+            margin-bottom: 20px;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* FINAL */
+
+        .final {
+            padding: 50px 20px;
+        }
+
+        .final .cake {
+            font-size: 65px;
+            margin-bottom: 20px;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+
+            from {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px #dcb4ff);
+            }
+
+            to {
+                transform: scale(1.08);
+                filter: drop-shadow(0 0 25px #dcb4ff);
+            }
+
+        }
+
+        .final h2 {
+            font-size: clamp(32px, 7vw, 55px);
+            color: #f0d8ff;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            max-width: 600px;
+            margin: auto;
+
+            color: #d6ccdf;
+            font-size: 18px;
+            line-height: 1.9;
+            font-style: italic;
+        }
+
+        .ending {
+            margin-top: 45px;
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: #c49de5;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 60px 18px;
+            }
+
+            .letter {
+                padding: 30px 22px;
+            }
+
+            .letter p {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="stars" id="stars"></div>
+
+    <div id="particles"></div>
+
+
+    <main class="container">
+
+        <div class="top-text">
+            ✦ FOR SOMEONE VERY SPECIAL ✦
+        </div>
+
+        <h1>SIVAA</h1>
+
+        <div class="birthday">
+            HAPPY 20TH BIRTHDAY ✨
+        </div>
+
+
+        <!-- LETTER -->
+
+        <section class="letter">
+
+            <h2>Dear Sivaa, 💌</h2>
+
+            <p>
+                Nine years.
+            </p>
+
+            <p>
+                It's crazy to think that what started as a friendship
+                has now become such a beautiful part of my life.
+                We've grown, changed, laughed, fought, shared
+                countless memories and somehow still managed to
+                stay here, nine years later.
+            </p>
+
+            <p>
+                There are so many moments that I could write about,
+                but I think what makes our friendship special isn't
+                just one particular memory. It's all the little things
+                that slowly became our story.
+            </p>
+
+            <p>
+                Even when life takes us in different directions,
+                I hope you always know that you'll have a special
+                place in my life.
+            </p>
+
+            <p>
+                Today you're turning 20, and I hope this new chapter
+                brings you happiness, courage, adventures, and
+                everything you've been working towards.
+            </p>
+
+            <p>
+                Keep being the person you are. Keep dreaming,
+                keep exploring, keep laughing, and keep making
+                memories.
+            </p>
+
+            <p>
+                And hopefully, when we're much older, we'll look
+                back at these nine years and laugh about how young
+                we were.
+            </p>
+
+            <p>
+                Thank you for being a part of my story. 🤍
+            </p>
+
+            <div class="signature">
+                Always cheering for you,<br>
+                Your best friend 💜
+            </div>
+
+        </section>
+
+
+        <!-- MUSIC -->
+
+        <section class="music-card">
+
+            <div class="music-icon">🎵</div>
+
+            <h3>The Girl who always made this lyrics true</h3>
+
+            <p>Nanbiyae — Teddy</p>
+
+            <!-- Put your own audio file in assets -->
+            <audio controls>
+                <source src="assets/Nanbiyae.mp3" type="audio/mpeg">
+                Your browser does not support audio.
+            </audio>
+
+        </section>
+
+
+        <!-- FINAL -->
+
+        <section class="final">
+
+            <div class="cake">
+                🎂
+            </div>
+
+            <h2>Happy Birthday, Sivaa! 💜</h2>
+
+            <p>
+                Here's to 20, to nine beautiful years of friendship,
+                and to all the memories that are still waiting for us.
+            </p>
+
+            <div class="ending">
+                ✦ OUR STORY IS STILL BEING WRITTEN ✦
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /* CREATE STARS */
+
+        const stars =
+            document.getElementById("stars");
+
+        for (let i = 0; i < 120; i++) {
+
+            const star =
+                document.createElement("div");
+
+            star.className = "star";
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+            stars.appendChild(star);
+        }
+
+
+        /* FLOATING PARTICLES */
+
+        const particles =
+            document.getElementById("particles");
+
+        const symbols = ["✦", "✧", "♡", "✿"];
+
+        for (let i = 0; i < 20; i++) {
+
+            const particle =
+                document.createElement("div");
+
+            particle.className = "particle";
+
+            particle.textContent =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+            particle.style.animationDelay =
+                Math.random() * 8 + "s";
+
+            particle.style.animationDuration =
+                (6 + Math.random() * 5) + "s";
+
+            particles.appendChild(particle);
+        }
+
+    </script>
+
+</body>
+</html>

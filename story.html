@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>9 Years of Us 💜</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, #3b245c, #17102d 45%, #080612);
+            color: white;
+            font-family: Georgia, serif;
+            overflow-x: hidden;
+        }
+
+        /* STARS */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+
+            from {
+                opacity: 0.2;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        /* MAIN */
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: auto;
+            padding: 70px 25px;
+            text-align: center;
+        }
+
+        .small-title {
+            letter-spacing: 4px;
+            font-size: 14px;
+            color: #d8bdf0;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 75px);
+            margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #e4c5ff,
+                #ffffff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #d8cee5;
+            font-style: italic;
+            margin-bottom: 60px;
+        }
+
+        /* PHOTO GALLERY */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 10px 10px 35px;
+            border-radius: 3px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.35);
+
+            transition: 0.4s;
+
+            transform: rotate(-2deg);
+        }
+
+        .photo-card:nth-child(2) {
+            transform: rotate(3deg);
+        }
+
+        .photo-card:nth-child(3) {
+            transform: rotate(-1deg);
+        }
+
+        .photo-card:nth-child(4) {
+            transform: rotate(2deg);
+        }
+
+        .photo-card:nth-child(5) {
+            transform: rotate(-3deg);
+        }
+
+        .photo-card:nth-child(6) {
+            transform: rotate(1deg);
+        }
+
+        .photo-card:hover {
+            transform:
+                rotate(0deg)
+                translateY(-10px)
+                scale(1.03);
+
+            box-shadow:
+                0 20px 40px rgba(200,160,255,0.3);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .caption {
+            color: #30233d;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        /* FRIENDSHIP */
+
+        .friendship {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .friendship h2 {
+            font-size: 34px;
+            margin-bottom: 35px;
+            color: #ead7fa;
+        }
+
+        .timeline {
+            position: relative;
+            text-align: left;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(255,255,255,0.25);
+        }
+
+        .memory {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 35px;
+        }
+
+        .memory::before {
+            content: "✦";
+            position: absolute;
+            left: 11px;
+            top: 0;
+            color: #e6c5ff;
+            font-size: 18px;
+        }
+
+        .year {
+            color: #d5a9ff;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 7px;
+        }
+
+        .memory h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .memory p {
+            color: #cfc5db;
+            line-height: 1.7;
+        }
+
+        /* FINAL BOX */
+
+        .final-message {
+            margin-top: 80px;
+            padding: 40px 25px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(10px);
+        }
+
+        .final-message p {
+            color: #ddd1e8;
+            font-style: italic;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* PAGE 3 BUTTON */
+
+        .next-button {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 15px 32px;
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            border-radius: 40px;
+
+            color: white;
+
+            background: rgba(255,255,255,0.08);
+
+            font-family: Georgia, serif;
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.4s;
+
+            box-shadow:
+                0 0 20px rgba(205,160,255,0.15);
+        }
+
+        .next-button:hover {
+            transform: translateY(-4px);
+
+            background:
+                rgba(220,180,255,0.2);
+
+            box-shadow:
+                0 0 35px rgba(205,160,255,0.4);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .container {
+                padding: 50px 18px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+
+            .photo-card img {
+                height: 180px;
+            }
+
+            .friendship h2 {
+                font-size: 28px;
+            }
+
+        }
+
+        @media (max-width: 450px) {
+
+            .gallery {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .photo-card img {
+                height: 250px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- STARS -->
+
+    <div class="stars" id="stars"></div>
+
+
+    <main class="container">
+
+
+        <!-- TITLE -->
+
+        <div class="small-title">
+            ✦ OUR LITTLE STORY ✦
+        </div>
+
+
+        <h1>
+            9 Years of Us
+        </h1>
+
+
+        <p class="subtitle">
+            Nine years, countless memories, one beautiful friendship. 💜
+        </p>
+
+
+        <!-- PHOTOS -->
+
+        <section class="gallery">
+
+
+            <div class="photo-card">
+
+                <img
+                    src="assets/photo1.jpg.jpeg"
+                    alt="Memory 1">
+
+                <div class="caption">
+                    Where it all began ✨
+                </div>
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <img
+                    src="assets/photo2.jpg.jpeg"
+                    alt="Memory 2">
+
+                <div class="caption">
+                    The good old days 🌸
+                </div>
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <img
+                    src="assets/photo3.jpg.jpeg"
+                    alt="Memory 3">
+
+                <div class="caption">
+                    Too many laughs 😂
+                </div>
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <img
+                    src="assets/photo4.jpg.jpeg"
+                    alt="Memory 4">
+
+                <div class="caption">
+                    Memories worth keeping 💫
+                </div>
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <img
+                    src="assets/photo5.jpg.jpeg"
+                    alt="Memory 5">
+
+                <div class="caption">
+                    Always us 🤍
+                </div>
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <img
+                    src="assets/photo6.jpg.jpeg"
+                    alt="Memory 6">
+
+                <div class="caption">
+                    Still making memories ✨
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- FRIENDSHIP STORY -->
+
+        <section class="friendship">
+
+
+            <h2>
+                Our Story 🌙
+            </h2>
+
+
+            <div class="timeline">
+
+
+                <div class="memory">
+
+                    <div class="year">
+                        2017
+                    </div>
+
+                    <h3>
+                        Where It All Began 🌱
+                    </h3>
+
+                    <p>
+                        Somewhere along the way, two people became
+                        friends without knowing how important that
+                        friendship would eventually become.
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+
+                    <div class="year">
+                        THE YEARS AFTER
+                    </div>
+
+                    <h3>
+                        Laughs, Chaos & Memories 😂
+                    </h3>
+
+                    <p>
+                        From random conversations to unforgettable
+                        moments, somehow there was always another
+                        memory waiting to happen.
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+
+                    <div class="year">
+                        9 YEARS
+                    </div>
+
+                    <h3>
+                        And We're Still Here 🤍
+                    </h3>
+
+                    <p>
+                        Different places, different phases of life,
+                        but somehow the friendship stayed.
+                    </p>
+
+                </div>
+
+
+                <div class="memory">
+
+                    <div class="year">
+                        2026
+                    </div>
+
+                    <h3>
+                        And The Story Continues ✨
+                    </h3>
+
+                    <p>
+                        Nine years down.
+                        Hopefully a lifetime of memories to go.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- LAST SECTION -->
+
+        <section class="final-message">
+
+
+            <p>
+                "Some friendships are measured in years.
+                Ours is measured in memories."
+            </p>
+
+
+            <!-- THIS OPENS PAGE 3 -->
+
+            <button
+                class="next-button"
+                onclick="goToSurprise()">
+
+                There's One More Thing... 💌
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+        /* CREATE STARS */
+
+        const stars =
+            document.getElementById("stars");
+
+
+        for (let i = 0; i < 100; i++) {
+
+            const star =
+                document.createElement("div");
+
+            star.className = "star";
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+            stars.appendChild(star);
+
+        }
+
+
+        /* OPEN PAGE 3 */
+
+        function goToSurprise() {
+
+            window.location.href = "surprise.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
